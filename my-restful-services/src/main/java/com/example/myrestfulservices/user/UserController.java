@@ -52,4 +52,12 @@ public class UserController {
         }
     }
 
+    @PutMapping("/users")
+    public void updateUser(@RequestBody User user) {
+        User updatedUser = service.updataById(user);
+
+        if (updatedUser == null) {
+            throw new UserNotFoundException(String.format("ID[%s] not found", user.getId()));
+        }
+    }
 }

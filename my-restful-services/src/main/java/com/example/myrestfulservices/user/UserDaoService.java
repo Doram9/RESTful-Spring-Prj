@@ -54,4 +54,18 @@ public class UserDaoService {
 
         return null;
     }
+
+    public User updataById(User user_req) {
+        int id = user_req.getId();
+        String name = user_req.getName();
+
+        for (User user : users) {
+            if(user.getId() == id) {
+                user.setName(name);
+                return user;
+            }
+        }
+
+        return null;
+    }
 }
